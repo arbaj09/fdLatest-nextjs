@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect } from "react";
+import React from "react";
 import Graph from "./Graph/page";
 
 
@@ -7,6 +7,7 @@ import Graph from "./Graph/page";
 import { useState } from "react";
 
 const Investment = () => {
+  const [futureValue, setFutureValue] = useState(0);
   const [YearlyDetails, setYearlyDetails] = useState([]); // To store yearly details
   const [Lumpsum, setLumpsum] = useState(0);
   const [ShowInvest, setShowInvest] = useState(true);
@@ -33,8 +34,16 @@ const Investment = () => {
     } else if (Value.option === "Yearly") {
       periodsPerYear = 1;
     }
+     // Convert the rate of interest from percentage to decimal
 
-    let totalAmount = principal * Math.pow(1 + interestRate / periodsPerYear, periodsPerYear * duration);
+
+     // Calculate the future value using the formula
+     const futureValue = principal * Math.pow(1 + interestRate, periodsPerYear);
+ 
+     // Update the state with the calculated future value
+   
+
+    // let totalAmount = principal * Math.pow(1 + interestRate / periodsPerYear, periodsPerYear * duration);
     const yearlyDetails = [];
 
     let openingBalance = 0;
@@ -52,10 +61,11 @@ const Investment = () => {
 
       openingBalance = closingBalance; // Set the opening balance for the next iteration
     }
+    setFutureValue(futureValue);
 
     setYearlyDetails(yearlyDetails);
   };
-  console.log('year',YearlyDetails)
+
 
   
 
@@ -78,19 +88,19 @@ const Investment = () => {
 
   const EarnAsInterest = totalAmount - Value.Amount;
  
-  if (Value.TwoOption === "AsLumpsum") {
-    if (Value.option === "Quarterly") {
-      periodsPerYear = 4;
-    } else if (Value.option === "Half yearly") {
-      periodsPerYear = 2;
-    } else if (Value.option === "Yearly") {
-      periodsPerYear = 1;
-    }
-    const na = periodsPerYear * duration;
-    const ra = parseFloat(Value.Interest) / 100;
-    const Ma = principal * Math.pow(1 + ra, na);
-    console.log(Ma)
-    console.log(principal)
+  // if (Value.TwoOption === "AsLumpsum") {
+  //   if (Value.option === "Quarterly") {
+  //     periodsPerYear = 4;
+  //   } else if (Value.option === "Half yearly") {
+  //     periodsPerYear = 2;
+  //   } else if (Value.option === "Yearly") {
+  //     periodsPerYear = 1;
+  //   }
+  //   const na = periodsPerYear * duration;
+  //   const ra = parseFloat(Value.Interest) / 100;
+  //   const Ma = principal * Math.pow(1 + ra, na);
+  //   console.log(Ma)
+  //   console.log(principal)
   
 
 
@@ -102,7 +112,7 @@ const Investment = () => {
     
 
 
-  }
+  // }
   
  
 
@@ -317,7 +327,7 @@ const Investment = () => {
                   Calculation of FD returns
                 </p>
                 <span>
-                  that’s ₹<span className="text-color">{Lumpsum} </span> earned as
+                  that’s ₹<span className="text-color"> total gain{futureValue} </span> earned as
                   total
                 </span>
        
