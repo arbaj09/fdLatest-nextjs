@@ -79,9 +79,6 @@
   --tw-bg-opacity: 1;
   background-color: rgba(255,255,255,var(--tw-bg-opacity));
 
-
-
-
 }
 .app{
   margin: 20px auto;
@@ -119,7 +116,7 @@
 .button_container{
 
   display: flex;
-  justify-content: start;
+
   width: 24rem;
   --tw-bg-opacity: 1;
   background-color: rgba(242,242,242,var(--tw-bg-opacity));
