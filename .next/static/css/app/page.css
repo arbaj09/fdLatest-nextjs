@@ -215,7 +215,7 @@
     /* margin: 1rem; */
         width: 100%;
 
-    padding: 20px;
+    padding: 0px;
     background-color: #f5f5f5;
     /* border: 1px solid #e0e0e0; */
     /* border-radius: 5px; */
@@ -228,7 +228,7 @@
     justify-content: center
   ;
     flex-direction: column;
-    width: 100%;
+
   }
   .btn {
     flex-direction: row;
@@ -238,10 +238,11 @@
   
 
   .Investment-container, .Investment-container-Expect, .Container-invested {
+    overflow: scroll;
     margin-top: 0;
     margin-bottom: 1rem; 
     margin-left: 0;
-    width: 100%;
+    width: 21rem;
   
   
    
@@ -260,12 +261,12 @@
   .button_container{
     display: flex;
     JUSTIFY-CONTENT: center;
-    width: 109%;
+    width: 100%;
     --tw-bg-opacity: 1;
     background-color: rgba(242,242,242,var(--tw-bg-opacity));
   }
   .button_slide{
-    width: 13rem;
+    width: 10rem;
   }
    
   }

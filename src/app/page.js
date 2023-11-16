@@ -31,25 +31,24 @@ const app = () => {
   };
 
   return <>
-  <div className="app"> 
-  <div>
+
+
     <div className="button_container">
      
      <div ><button className="button_slide " onClick={TargetHandler} >Target</button></div>
      <div ><button className="button_slide " onClick={INVESTMENT} >Invetment</button></div>
-     </div>
+     
      
   
    
-    <div >
+    </div >
  
    {ShowInvest? (<Investment/>):
     (<Target/>)}
 
-    </div>
-    </div>
-   
-  </div>
+  
+
+
   </>
 
 
