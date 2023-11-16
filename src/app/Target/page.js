@@ -211,7 +211,7 @@ const Target = () => {
                       <th>closingBalance</th>
                     </tr>
                     {YearlyDetails.map((data) => (
-                      <tr className="Data" key={data}>
+                      <tr className="Data" key={data.id}>
                         <td>{data.year}</td>
                         <td>₹ {data.openingBalance}</td>
                         <td>₹ {data.interestEarned}</td>

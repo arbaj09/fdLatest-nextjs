@@ -1,7 +1,6 @@
 "use client"
 
 import React from 'react';
-import { useState} from 'react';
 import './Graph.css';
 
 import {
@@ -54,8 +53,7 @@ const Graph = ({YearlyGroth }) => {
 
   return (
     <div className='GRAPH'>
-      {/* Render your chart using chartData */}
-      {/* Example: */}
+     
       <Line data={chartData} options={options}  className='line'/>
     </div>
   );
