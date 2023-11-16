@@ -41,7 +41,7 @@ const app = () => {
      
   
    
-    <div>
+    <div >
  
    {ShowInvest? (<Investment/>):
     (<Target/>)}
