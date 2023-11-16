@@ -1,6 +1,8 @@
 "use client"
 import React from "react";
-// import Graph from "./Graph/page";
+import './globals.css'
+
+
 import Investment from "./Investment/page";
 import Target from "./Target/page";
 

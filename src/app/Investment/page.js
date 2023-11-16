@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import Graph from "../Graph/page";
+import '../globals.css'
 
 
 import { useState } from "react";
