@@ -39,6 +39,10 @@ const options = {
 };
 
 const Graph = ({YearlyGroth }) => {
+  if (!YearlyGroth || YearlyGroth.length === 0) {
+    return <div>No data available</div>;
+  }
+
   const chartData = {
     labels: YearlyGroth.map((yearData) => `Year ${yearData.year}`),
     datasets: [
