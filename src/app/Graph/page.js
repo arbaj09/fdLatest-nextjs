@@ -39,24 +39,25 @@ const options = {
   },
 };
 
-const Graph = () => {
-  const [data, setData] = useState({
-    labels: ['1 Year', '2 Year', '3 Year', '4 Year', '5 Year', '6 Year', '7 Year', '8 Year', '9 Year', '10 Year'],
+const Graph = ({YearlyGroth }) => {
+  const chartData = {
+    labels: YearlyGroth.map((yearData) => `Year ${yearData.year}`),
     datasets: [
       {
-        label: 'Dataset',
-        data: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+        label: 'Earnings',
+        data: YearlyGroth .map((yearData) => parseFloat(yearData.totalAmount)),
         borderColor: 'rgb(53, 162, 235)',
         backgroundColor: 'rgba(53, 162, 235, 0.5)',
       },
     ],
-  });
+  };
 
   return (
     <div className='GRAPH'>
-      <Line data={data} options={options} />
+      {/* Render your chart using chartData */}
+      {/* Example: */}
+      <Line data={chartData} options={options}  className='line'/>
     </div>
   );
 };
-
-export default Graph;
+export default Graph
