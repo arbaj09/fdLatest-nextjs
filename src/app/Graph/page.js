@@ -20,22 +20,17 @@ import { Line } from 'react-chartjs-2';
 ChartJS.register(CategoryScale, LinearScale, BarElement, LineElement, PointElement, Title, Tooltip, Legend);
 
 const options = {
-  indexyxis: 'X',
-  elements: {
-    area: {
-      borderWidth: 2, // You can customize area element properties here
+  scales: {
+    x: {
+      title: {
+        display: true,
+        text: 'Year',
+
+      }
     },
-  },
-  responsive: true,
-  plugins: {
-    legend: {
-      position: 'right',
-    },
-    title: {
-      display: true,
-      text: 'Fd Return', // Update the chart title
-    },
-  },
+
+    
+  }
 };
 
 const Graph = ({YearlyGroth }) => {
@@ -47,10 +42,12 @@ const Graph = ({YearlyGroth }) => {
     labels: YearlyGroth.map((yearData) => `Year ${yearData.year}`),
     datasets: [
       {
-        label: 'Earnings',
+
         data: YearlyGroth .map((yearData) => parseFloat(yearData.totalAmount)),
-        borderColor: 'rgb(53, 162, 235)',
-        backgroundColor: 'rgba(53, 162, 235, 0.5)',
+        borderColor: 'green',
+        borderColor: 'rgba(75, 192, 192, 1)',
+
+    
       },
     ],
   };
@@ -58,7 +55,7 @@ const Graph = ({YearlyGroth }) => {
   return (
     <div className='GRAPH'>
      
-      <Line data={chartData} options={options}  className='line'/>
+      <Line data={chartData} options={options}  className='line' height="336px" width='650px'  />
     </div>
   );
 };

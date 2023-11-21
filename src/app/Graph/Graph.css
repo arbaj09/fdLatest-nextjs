@@ -2,12 +2,33 @@
     DISPLAY: flex;
     align-items: center;
     justify-content: center;
-    height: 19rem;
+    height: 81%;
+    width: 38rem;
+}
    
 
    
-}
+
 .line{
-    width: 2rem;
-    height: 2rem;
+    box-sizing: border-box;
+    display: block;
+    height: 359px;
+    width: 608px;
+}
+
+@media (max-width: 768px) {
+    .GRAPH{
+   
+        height: 80%;
+        width: 100%;
+    }
+    .line{
+   
+    height: 297px;
+    width: 352px;
+  
+}
+    
+       
+
 }

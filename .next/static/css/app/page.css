@@ -3,61 +3,95 @@
   \*****************************************************************************************************************************************************************************************************************************************************************/
 /* Styles for the container */
 .Container {
+  /* max-width: 600px; */
+  display: flex;
 
   /* max-width: 600px; */
+  justify-content: center;
+  /* align-items: center; */
   padding: 20px;
+  flex-direction: column;
   --tw-bg-opacity: 1;
-  background-color: rgba(255,255,255,var(--tw-bg-opacity));
-
+  background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
+  width: 80%;
+  margin: auto;
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
+    var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  --tw-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  border-radius: 0.375rem;
 }
-.app{
 
+.main-container {
+  display: flex;
+  justify-items: center;
+  justify-content: center;
+  background-color: red;
+  flex-direction: column;
+}
+.app {
   width: 75%;
   /* max-width: 600px; */
   padding: 20px;
   --tw-bg-opacity: 1;
-  background-color: rgba(255,255,255,var(--tw-bg-opacity));
+  background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
   border: 1px solid #e0e0e0;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-
- 
+}
+.button_container{
+  display: flex;
+    border-radius: 0.6rem;
+   
+    width: 25rem;
+    --tw-bg-opacity: 1;
+    background-color: rgba(242, 242, 242, var(--tw-bg-opacity));
 }
 .button_slide {
 
-  width: 12rem;
-  color:#000000 ;
 
+    background: #fff;
+    box-shadow: 0 2px 3px rgba(0,0,0,.07), 0 0.5px 2px rgba(0,0,0,.1);
+    border-radius: 4px;
+  
+    will-change: transform;
+    transition: transform .2s ease;
+
+
+  border: none;
+
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+;
+
+  width: 12rem;
+  color: #404040;
+  font-weight: 500;
+
+  padding: 10px 4px;
  
 
-  padding: 13px 4px;
-  display: inline-block;
-
-  font-size: 14px inter,sans-serif;
+  font-size: 14px inter, sans-serif;
   letter-spacing: 1px;
   cursor: pointer;
-  box-shadow: inset 0 0 0 0 #fff;
-  border-radius: 4px;
-  transition: ease-out 0.4s;
+
+
+
+
 }
 .button_slide:hover {
-  box-shadow: inset 400px 0 0 0  #fff; ;;
-}
-.button_container{
-
-  display: flex;
-
-  width: 24rem;
-  --tw-bg-opacity: 1;
-  background-color: rgba(242,242,242,var(--tw-bg-opacity));
-
+  box-shadow: inset 400px 0 0 0 #fff;
 }
 
-.Traget-Amount-container{
+.Traget-Amount-container {
   display: flex;
   flex-direction: column;
 }
-.Data{
+.Data {
   text-align: center;
 }
 
@@ -84,7 +118,8 @@
 }
 
 /* Styles for the investment calculator sections */
-.Investment-container, .Investment-container-Expect {
+.Investment-container,
+.Investment-container-Expect {
   /* background-color: #fff;
   padding: 20px;
   border: 1px solid #e0e0e0;
@@ -93,15 +128,10 @@
   margin-bottom: 20px; */
 
   background-color: #fff;
-    padding: 20px;
+  padding: 20px;
 
-
- 
-    margin-bottom: 20px;
-    width: 22rem;
-
-
- 
+  margin-bottom: 20px;
+  width: 22rem;
 }
 
 /* Styles for range input and text color */
@@ -110,18 +140,47 @@
 .Interest-Rate input[type="range"],
 .Expect input[type="range"] {
   width: 100%;
+  -webkit-appearance: none;
+  background: #3b3b73;
+  height: 0.5rem;
+  border-radius: 999px;
+  --tw-ring-color: rgba(0,122,255,.5);
 }
+input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 25px;
 
-.text-color {
-  color: rgba(15,172,133);
+  width: 25px;
+  text-align: center;
+  background-color: #fff;
+  background-image: url('/icons8-menu-16.png');
+  background-position: center;
+background-size: cover;
+ 
+  
+  --tw-ring-offset-width: 0px;
+  --tw-ring-offset-color: #fff;
+  --tw-ring-color: rgba(0,122,255,.5);
+  --tw-ring-offset-shadow: 0 0 #0000;
+  --tw-ring-shadow: 0 0 #0000;
+  border-radius: 50%;
+  cursor: grab;
+  
+  
+  box-shadow: 0 2px 7px rgba(0,0,0,.1), 0 0 2px rgba(0,0,0,.2);
+  outline: none;
 }
-#lumpsum-text{
+.text-color {
+  color: rgba(15, 172, 133);
+}
+#lumpsum-text {
   font-size: large;
   font-weight: bold;
 }
 
 /* Styles for select dropdowns */
-.Option, .Expect {
+.Option,
+.Expect {
   width: 100%;
   padding: 10px;
   border: 1px solid #ccc;
@@ -129,7 +188,8 @@
   margin-top: 5px;
 }
 
-.Regular, .Citizen {
+.Regular,
+.Citizen {
   width: 100%;
   padding: 10px;
   border: 1px solid #ccc;
@@ -138,7 +198,8 @@
 }
 
 /* Styles for the "Calculate" button */
-.Calculate, #Lumpsum {
+.Calculate,
+#Lumpsum {
   background-color: #007bff;
   color: #fff;
   border: none;
@@ -149,71 +210,73 @@
   transition: background-color 0.3s;
 }
 
-.Calculate:hover, #Lumpsum:hover {
+.Calculate:hover,
+#Lumpsum:hover {
   background-color: #0056b3;
 }
-.both{
+.both {
   display: flex;
   gap: 1rem;
-  
 }
 /* Styles for the result section */
 .Container-invested {
-
- 
   height: 26rem;
 
   width: 32rem;
   background-color: #fff;
   padding: 20px;
-
-
-
-  
-
 }
-#EarnAsInterest{
+#EarnAsInterest {
   --tw-text-opacity: 1;
-  color: rgba(245,128,36,var(--tw-text-opacity));
+  color: rgba(245, 128, 36, var(--tw-text-opacity));
 }
-
 
 #Text {
-  
   margin-top: 10px;
   font-size: 18px;
 }
-.Invest{
+.Invest {
   display: flex;
   justify-content: space-between;
 }
-.Table{
+.Table {
   width: 100%;
 }
 
+/* Styling for tables */
+.Table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.Table th,
+.Table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.Table th {
+  background-color: #f2f2f2;
+}
 
 /* Responsive styles for smaller screens */
 @media (max-width: 768px) {
-  .app{
-  
+  .app {
     width: 100%;
     /* max-width: 600px; */
 
     --tw-bg-opacity: 1;
-    background-color: rgba(255,255,255,var(--tw-bg-opacity));
+    background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
     border: 1px solid #e0e0e0;
- 
-
-  
-   
   }
-  .Container {
 
-  
+  .Container {
     display: flex;
     flex-direction: column;
     /* margin: 1rem; */
-        width: 100%;
+    width: 100%;
 
     padding: 0px;
     background-color: #f5f5f5;
@@ -221,56 +284,46 @@
     /* border-radius: 5px; */
     /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
     flex-wrap: wrap;
-   
   }
-  .both{
+  .both {
     align-items: center;
-    justify-content: center
-  ;
+    justify-content: center;
     flex-direction: column;
-
   }
   .btn {
     flex-direction: row;
-    display: flex; 
-  
+    display: flex;
   }
-  
 
-  .Investment-container, .Investment-container-Expect, .Container-invested {
+  .Investment-container,
+  .Investment-container-Expect,
+  .Container-invested {
     overflow: scroll;
     margin-top: 0;
-    margin-bottom: 1rem; 
+    margin-bottom: 1rem;
     margin-left: 0;
     width: 21rem;
-  
-  
-   
-      height: 37rem;
-    
-    
-    
+
+    height: 37rem;
+
     background-color: #fff;
     padding: 20px;
     border: 1px solid #e0e0e0;
     border-radius: 5px;
 
     margin-top: 20px;
-    
   }
-  .button_container{
+  .button_container {
     display: flex;
-    JUSTIFY-CONTENT: center;
+    justify-content: center;
     width: 100%;
     --tw-bg-opacity: 1;
-    background-color: rgba(242,242,242,var(--tw-bg-opacity));
+    background-color: rgba(242, 242, 242, var(--tw-bg-opacity));
   }
-  .button_slide{
+  .button_slide {
     width: 10rem;
   }
-   
-  }
-
+}
 
 /*!*********************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[12].oneOf[12].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[12].oneOf[12].use[3]!./src/app/Graph/Graph.css ***!
@@ -279,12 +332,33 @@
     DISPLAY: flex;
     align-items: center;
     justify-content: center;
-    height: 19rem;
+    height: 81%;
+    width: 38rem;
+}
    
 
    
-}
+
 .line{
-    width: 2rem;
-    height: 2rem;
+    box-sizing: border-box;
+    display: block;
+    height: 359px;
+    width: 608px;
+}
+
+@media (max-width: 768px) {
+    .GRAPH{
+   
+        height: 80%;
+        width: 100%;
+    }
+    .line{
+   
+    height: 297px;
+    width: 352px;
+  
+}
+    
+       
+
 }

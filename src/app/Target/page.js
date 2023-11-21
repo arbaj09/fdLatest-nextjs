@@ -1,9 +1,10 @@
 "use client";
 import React from "react";
-import { useState } from "react";
+import { useState ,useEffect } from "react";
 import '../globals.css'
 
 const Target = () => {
+  const [isOptionChanged, setIsOptionChanged] = useState(false);
   const [TotalInterest, setTotalInterest] = useState(0);
   const [YearlyDetails, setYearlyDetails] = useState([]); // To store yearly details
   const [Lumpsum, setLumpsum] = useState(0);
@@ -18,6 +19,31 @@ const Target = () => {
   const principal = parseFloat(Value.Amount);
   const duration = parseFloat(Value.Duration);
   const interestRate = parseFloat(Value.Interest) / 100;
+
+  const HandleInputChange = (e) => {
+    const { name, value } = e.target;
+
+    SetValue((prevValue) => ({
+      ...prevValue,
+      [name]: value,
+    }));
+    if (YearlyDetails) {
+      setIsOptionChanged(true);
+    }
+   
+    if (name === 'option') {
+      setIsOptionChanged(true);
+    }
+  
+  };
+  useEffect(() => {
+    // Trigger the calculation function whenever the option changes
+    if (isOptionChanged) {
+      ExceptedHanler();
+      setIsOptionChanged(false); // Reset the flag after triggering the calculation
+    }
+  }, [isOptionChanged]); // Listen for changes in the flag to trigger the effect
+  
 
   const ExceptedHanler = () => {
     if(Value.TwoOption==="As Lumpsum"){
@@ -67,19 +93,11 @@ const Target = () => {
     setYearlyDetails(yearlyDetails);
     setLumpsum(compoundAmount);
     setTotalInterest(TotalEarnInterest);
-  }}
+}}
 
  
 
 
-  const HandleInputChange = (e) => {
-    const { name, value } = e.target;
-
-    SetValue((prevValue) => ({
-      ...prevValue,
-      [name]: value,
-    }));
-  };
 
 
 
@@ -87,7 +105,7 @@ const Target = () => {
 
   return (
     <>
-      <div className="Container" onClick={ExceptedHanler}>
+      <div  >
         
         <div className="both">
      
@@ -108,10 +126,11 @@ const Target = () => {
               <div className="Amount">
                 <div className="Invest">
                   <p> Expected {Value.TwoOption}</p>
-                  <p className="text-color">₹ {Value.Amount}</p>
+                  <p className="text-color">₹ {new Intl.NumberFormat('en-IN').format(Value.Amount)}</p>
                 </div>
 
                 <input
+                step='20000'
                   type="range"
                   name="Amount"
                   value={Value.Amount}
@@ -187,7 +206,7 @@ const Target = () => {
                   <div>
                     <span className="text-color" id="lumpsum-text">
                       {" "}
-                      ₹{Lumpsum.toFixed()}{" "}
+                      ₹{ new Intl.NumberFormat('en-IN').format(Lumpsum.toFixed())}{" "}
                     </span>
                     
                   </div>
@@ -195,7 +214,7 @@ const Target = () => {
                     Once For <span className="text-color">{duration} </span>year
                     you earn{" "}
                     <span className="total-interest-text">
-                      ₹{TotalInterest.toFixed()}
+                      ₹{ new Intl.NumberFormat('en-IN').format(TotalInterest.toFixed())}
                     </span>{" "}
                     as interest
                   </div>
@@ -213,9 +232,9 @@ const Target = () => {
                     {YearlyDetails.map((data) => (
                       <tr className="Data" key={data.id}>
                         <td>{data.year}</td>
-                        <td>₹ {data.openingBalance}</td>
-                        <td>₹ {data.interestEarned}</td>
-                        <td>₹ {data.closingBalance}</td>
+                        <td>₹ {new Intl.NumberFormat('en-IN').format(data.openingBalance)}</td>
+                        <td>₹ {new Intl.NumberFormat('en-IN').format(data.interestEarned)}</td>
+                        <td>₹ {new Intl.NumberFormat('en-IN').format(data.closingBalance)}</td>
                       </tr>
                     ))}
                   </table></div>

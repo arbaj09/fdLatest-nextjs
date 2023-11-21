@@ -54,17 +54,18 @@ const Investment = () => {
 
   return (
     <>
-      <div className="Container" >
+      <div  >
     
         <div className="both">
           <div className="Investment-container">
             <div className="Amount">
               <div className="Invest">
                 <p> Invetment Amount</p>
-                <p className="text-color">₹ {Value.Amount}</p>
+                <p className="text-color">₹ {new Intl.NumberFormat('en-IN').format(Value.Amount)}</p>
               </div>
 
               <input
+              step="20000"
                 type="range"
                 name="Amount"
                 value={Value.Amount}
@@ -119,18 +120,18 @@ const Investment = () => {
           </div>
 
           <div className="Container-invested">
-            <p id="Text">
+            <p id="Text" className="text-sm leading-4">
               After <span className="text-color">{Value.Duration}</span> years,
               you will have
             </p>
-            <p className="text-color" id="Text">
-              ₹ {YearlyGroth[YearlyGroth.length - 1].totalAmount}
+            <p className="text-color" id="Text" >
+              ₹ {new Intl.NumberFormat('en-IN').format(YearlyGroth[YearlyGroth.length - 1].totalAmount)}
             </p>
             <span id="Text">
               that’s
               <span id="EarnAsInterest">
                 {" "}
-                ₹ {YearlyGroth[YearlyGroth.length - 1].EarnAsInterest}{" "}
+                ₹ {new Intl.NumberFormat('en-IN').format(YearlyGroth[YearlyGroth.length - 1].EarnAsInterest)}{" "}
               </span>
                earned as interest
             </span>

@@ -11,40 +11,42 @@ import Target from "./Target/page";
 import { useState } from "react";
 
 const app = () => {
+  const [showInvest, setShowInvest] = useState(true);
+  const [showTarget, setShowTarget] = useState(false);
 
-  const [ShowInvest, setShowInvest] = useState(true);
-  const [ShowTarget, setShowTarget] = useState(false);
-
-
-
-
-
-
-
-  const TargetHandler = () => {
-    setShowTarget(!ShowTarget);
-    setShowInvest(!ShowInvest);
+  const showTargetTab = () => {
+    setShowTarget(true);
+    setShowInvest(false);
   };
 
-  const INVESTMENT= () => {
-    setShowInvest(!ShowInvest);
+  const showInvestmentTab = () => {
+    setShowInvest(true);
+    setShowTarget(false);
   };
 
   return <>
+  <div>
+  <div className="Container" >
+    <div>
+      <h2 className="mb-6 text-lg font-semibold font-sans text-gray-700 leading-5">Calculate FD Returns</h2>
+    </div>
+
 
 
     <div className="button_container">
      
-     <div ><button className="button_slide " onClick={TargetHandler} >Target</button></div>
-     <div ><button className="button_slide " onClick={INVESTMENT} >Invetment</button></div>
-     
-     
-  
+     <div ><button className="button_slide " onClick={showTargetTab} >Target</button></div>
+     <div ><button className="button_slide " onClick={showInvestmentTab} >Invetment</button></div>
    
     </div >
+
  
-   {ShowInvest? (<Investment/>):
-    (<Target/>)}
+<div className="both">
+    {showTarget && <Target />}
+      {showInvest && <Investment />}
+      </div>
+      </div>
+      </div>
 
   
 
