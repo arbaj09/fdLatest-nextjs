@@ -26,7 +26,7 @@ const app = () => {
 
   return <>
   <div>
-  <div className="Container" >
+  <div className="Container bg-white" >
     <div>
       <h2 className="mb-6 text-lg font-semibold font-sans text-gray-700 leading-5">Calculate FD Returns</h2>
     </div>
@@ -35,8 +35,8 @@ const app = () => {
 
     <div className="button_container">
      
-     <div ><button className="button_slide " onClick={showTargetTab} >Target</button></div>
-     <div ><button className="button_slide " onClick={showInvestmentTab} >Invetment</button></div>
+     <div ><button className="button_slide " onClick={showInvestmentTab} >Investment Amount</button></div>
+     <div ><button className="button_slide " onClick={showTargetTab} >Target Amount</button></div>
    
     </div >
 

@@ -17,18 +17,14 @@
 }
 
 @media (max-width: 768px) {
-    .GRAPH{
-   
-        height: 80%;
-        width: 100%;
+    .GRAPH {
+      height: 80%;
+      width: 100%;
     }
-    .line{
-   
-    height: 297px;
-    width: 352px;
   
-}
-    
-       
-
-}
+    .line {
+      max-height: 300px; /* Adjust the maximum height as needed for mobile */
+      max-width: 100%; /* Take full width of the container */
+      width: 100%; /* Ensure it takes full width */
+    }
+  }

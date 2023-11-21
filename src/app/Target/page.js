@@ -94,6 +94,12 @@ const Target = () => {
     setLumpsum(compoundAmount);
     setTotalInterest(TotalEarnInterest);
 }}
+ // Use useEffect to calculate on initial render
+ useEffect(() => {
+  // Call your calculation function here with the default values
+  ExceptedHanler();
+}, []); // Empty dependency array ensures this effect runs only once on mount
+
 
  
 
@@ -224,10 +230,10 @@ const Target = () => {
                 <div className="Table-conatiner">
                   <table className="Table">
                     <tr >
-                      <th>year</th>
-                      <th>openingBalance</th>
-                      <th>interestEarned</th>
-                      <th>closingBalance</th>
+                      <th>Year</th>
+                      <th>OpeningBalance</th>
+                      <th>InterestEarned</th>
+                      <th>ClosingBalance</th>
                     </tr>
                     {YearlyDetails.map((data) => (
                       <tr className="Data" key={data.id}>
